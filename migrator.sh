@@ -556,7 +556,9 @@ main() {
     docker_login ${V2_REGISTRY} ${V2_USERNAME} ${V2_PASSWORD} ${V2_EMAIL}
   fi
   push_images_to_v2
-  cleanup_local_engine
+  if [ "${KEEP_LOCAL_CACHE}" != "true" ]; then
+    cleanup_local_engine
+  fi
   migration_complete
 }
 

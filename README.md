@@ -69,6 +69,8 @@ The following environment variables can be set:
   * `V2_EMAIL` - Email used for `docker login` to the v2 registry
 
 *Note*: You must use all three variables (`V1_USERNAME`, `V1_PASSWORD`, and `V1_EMAIL` or `V2_USERNAME`, `V2_PASSWORD`, and `V2_EMAIL`) for the given automated `docker login` to function properly.  Omitting one will prompt the user for input of all three.
+  * `KEEP_LOCAL_CACHE`
+    * `true` - Prevents migrator from cleaning up the local image cache
 
 ## Prerequisites
 This migration tool assumes the following:
