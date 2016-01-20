@@ -371,7 +371,7 @@ query_source_images() {
     for i in ${REPO_LIST}
     do
       # get list of tags for image i
-      IMAGE_TAGS=$(curl ${V1_OPTIONS} -sf ${V1_PROTO}://${AUTH_CREDS}@${V1_REGISTRY}/v1/repositories/${i}/tags | jq -r 'keys | .[]') || catch_error "curl => API failure"
+      IMAGE_TAGS=$(compare_registries.py $i)
 
       # loop through tags to create list of full image names w/tags
       for j in ${IMAGE_TAGS}
